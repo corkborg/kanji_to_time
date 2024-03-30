@@ -1,7 +1,7 @@
 
 from datetime import datetime
 from lark import Tree
-from kanji_to_time.transformer.BaseTransformer import BaseTransformer
+from .BaseTransformer import BaseTransformer
 
 
 class DatetimeTransformer(BaseTransformer):

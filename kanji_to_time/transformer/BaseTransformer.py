@@ -1,5 +1,5 @@
 from lark import Token, Transformer
-import kanji_to_time.convert_table as kt
+from .. import convert_table
 
 class BaseTransformer(Transformer):
     """
@@ -7,10 +7,10 @@ class BaseTransformer(Transformer):
     """
 
     def kanji_digit(self, args: list[Token]):
-        return kt.to_number(args[0].value)
+        return convert_table.to_number(args[0].value)
 
     def zenkaku_digit(self, args: list[Token]):
-        return kt.to_number(args[0].value)
+        return convert_table.to_number(args[0].value)
 
     def number(self, args):
        if args[0] == "-":

@@ -1,6 +1,6 @@
 # Kanji to time
 
-日本語の漢字などで書かれた年月日をPythonのdatetime型やtimedelta型に変換するライブラリ。
+日本語の漢字などで書かれた年月日をPythonのdatetime型やtimedelta型に変換するライブラリ。<br/>
 漢数字、旧字漢数字、全角などに対応しています。
 
 ## 使い方

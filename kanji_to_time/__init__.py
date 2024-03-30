@@ -3,8 +3,8 @@ from typing import cast
 from pathlib import Path
 from lark import Lark
 
-from kanji_to_time.transformer.DatetimeTransformer import DatetimeTransformer
-from kanji_to_time.transformer.TimedeltaTransformer import TimeDeltaTransformer
+from .transformer.DatetimeTransformer import DatetimeTransformer
+from .transformer.TimedeltaTransformer import TimeDeltaTransformer
 
 schema_path = Path(__file__).parent / 'grammer'/ 'kanji_to_time.lark'
 
