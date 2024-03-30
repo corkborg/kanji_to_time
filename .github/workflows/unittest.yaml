@@ -1,0 +1,23 @@
+name: Run unittests
+on: [push]
+
+jobs:
+  unittest:
+    runs-on: ubuntu-latest
+
+    steps:
+      # リポジトリをチェックアウト
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      # Pythonの環境をセットアップ
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.11
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: run unittest
+        run: python -m unittest discover -s tests
