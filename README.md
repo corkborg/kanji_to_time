@@ -1,15 +1,16 @@
 # Kanji to time
 
 日本語の漢字などで書かれた年月日をPythonのdatetime型やtimedelta型に変換するライブラリ。<br/>
+
 漢数字、旧字漢数字、全角などに対応しています。
 
 ## 使い方
 
-```
+```bash
 pip install kanji_to_time
 ```
 
-```
+```python
 import kanji_to_time as ktt
 
 text = "2024年4月5日22時30分4秒"
@@ -61,9 +62,22 @@ td = to_timedelta("マイナス七億分")
 self.assertEqual(td, timedelta(minutes=-700_000_000))
 ```
 
+その他詳細なパターンはこちらのファイルを参照
+[tests/test_to_datetime.py](tests/test_to_datetime.py)<br/>
+[tests/test_to_timedelta.py](tests/test_to_datetime.py)<br/>
+[tests/test_to_number.py](tests/test_to_datetime.py)<br/>
+
 ## ユニットテスト
 
 ```
 pip install -r requirements.txt
 python -m unittest discover -s tests
 ```
+
+## 問い合わせ
+
+バグや機能要望についてはissueに報告をお願いします。
+https://github.com/corkborg/kanji_to_time/issues
+
+その他の問い合わせはメールまで（メール転送サービスを利用しています）<br/>
+ax4squil8&#064;mozmail.com
