@@ -76,7 +76,7 @@ python -m unittest discover -s tests
 
 ## 問い合わせ
 
-バグや機能要望についてはissueに報告をお願いします。
+バグや機能要望についてはissueに報告をお願いします。<br/>
 https://github.com/corkborg/kanji_to_time/issues
 
 その他の問い合わせはメールまで（メール転送サービスを利用しています）<br/>
