@@ -13,10 +13,12 @@ pip install kanji_to_time
 import kanji_to_time as ktt
 
 text = "2024年4月5日22時30分4秒"
-ktt.to_datetime(text)
+dt = ktt.to_datetime(text)
+print(dt)
 
-td = kanji_to_time.to_timedelta("二時間三十秒")
-ktt.to_timedelta(text)
+text = "二時間三十秒"
+td = ktt.to_timedelta(text)
+print(td)
 ```
 
 ## 対応パターン例
@@ -57,4 +59,11 @@ self.assertEqual(td, timedelta(seconds=90))
 
 td = to_timedelta("マイナス七億分")
 self.assertEqual(td, timedelta(minutes=-700_000_000))
+```
+
+## ユニットテスト
+
+```
+pip install -r requirements.txt
+python -m unittest discover -s tests
 ```
