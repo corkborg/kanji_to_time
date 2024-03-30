@@ -62,7 +62,7 @@ td = to_timedelta("マイナス七億分")
 self.assertEqual(td, timedelta(minutes=-700_000_000))
 ```
 
-その他詳細なパターンはこちらのファイルを参照
+その他詳細なパターンはこちらのファイルを参照<br/>
 [tests/test_to_datetime.py](tests/test_to_datetime.py)<br/>
 [tests/test_to_timedelta.py](tests/test_to_datetime.py)<br/>
 [tests/test_to_number.py](tests/test_to_datetime.py)<br/>
