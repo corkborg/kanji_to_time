@@ -13,13 +13,14 @@ duration_hour: number "時" | number "時間"
 duration_minute: number "分" | number "分間"
 duration_second: number "秒" | number "秒間"
 
-number: signed? kanji_num_parser
-kanji_num_parser: unit_oku? unit_man? unit_sen? unit_juu? mixed_number?
+number: (minus | plus)? mixed_number_with_unit
+mixed_number_with_unit: unit_oku? unit_man? unit_sen? unit_juu? mixed_number?
 
-signed: "-" | /ー/ | /マイナス/ | /ひく/ | /引く/
+minus: "-" | /ー/ | /マイナス/ | /ひく/ | /引く/
+plus: "+" | /＋/ | /プラス/ | /たす/ | /足す/
 
-unit_oku: mixed_number "億" // 億は単位だけで登場することがないと考えている
-unit_man: mixed_number? "万"
+unit_oku: mixed_number "億" // 億は数値が必須
+unit_man: mixed_number "万" // 万は数値が必須
 unit_sen: mixed_number? "千"
 unit_juu: mixed_number? "十"
 

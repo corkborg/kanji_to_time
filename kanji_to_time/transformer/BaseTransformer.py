@@ -13,19 +13,24 @@ class BaseTransformer(Transformer):
         return convert_table.to_number(args[0].value)
 
     def number(self, args):
-       if args[0] == "-":
+        if args[0] == "-":
             return args[1] * -1
-       return args[0]
+        if args[0] == "+":
+            return args[1]
+        return args[0]
 
-    def signed(self, args):
+    def minus(self, args):
         return "-"
+
+    def plus(self, args):
+        return "+"
 
     def mixed_number(self, args):
         # 桁をあわせて結合
         strs = [str(arg) for arg in args]
         return int(''.join(strs))
 
-    def kanji_num_parser(self, args):
+    def mixed_number_with_unit(self, args):
         return sum(args)
 
     def unit_juu(self, args):
