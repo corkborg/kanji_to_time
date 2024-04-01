@@ -44,3 +44,4 @@ ZENKAKU_DIGIT: "０" | "１" | "２" | "３" | "４" | "５" | "６" | "７" | "
 %import common.DIGIT
 %import common.WS
 %ignore WS
+%ignore ","
