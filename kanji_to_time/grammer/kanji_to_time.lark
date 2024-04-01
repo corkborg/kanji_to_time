@@ -1,4 +1,4 @@
-start_datetime: year? month? day? hour? minute? second?
+start_datetime: year month day hour? minute? second?
 start_timedelta: duration_day? duration_hour? duration_minute? duration_second?
 
 year: number "年"
