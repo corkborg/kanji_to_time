@@ -20,6 +20,12 @@ class TestClass(unittest.TestCase):
         td = ktt.to_timedelta("マイナス七億分")
         self.assertEqual(td, timedelta(minutes=-700_000_000))
 
+        td = ktt.to_timedelta("45秒前")
+        self.assertEqual(td, timedelta(seconds=-45))
+
+        td = ktt.to_timedelta("45秒後")
+        self.assertEqual(td, timedelta(seconds=45))
+
     def test_detail(self):
         td = ktt.to_timedelta("二時３分")
         self.assertEqual(td, timedelta(hours=2, minutes=3))

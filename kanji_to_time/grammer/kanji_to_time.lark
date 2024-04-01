@@ -1,5 +1,5 @@
 start_datetime: year month day hour? minute? second?
-start_timedelta: duration_day? duration_hour? duration_minute? duration_second?
+start_timedelta: duration_day? duration_hour? duration_minute? duration_second? (before_time | after_time)?
 
 year: number "年"
 month: number "月"
@@ -12,6 +12,9 @@ duration_day: number "日" | number "日間"
 duration_hour: number "時" | number "時間"
 duration_minute: number "分" | number "分間"
 duration_second: number "秒" | number "秒間"
+
+before_time: "前"
+after_time: "後"
 
 number: (minus | plus)? mixed_number_with_unit
 mixed_number_with_unit: unit_oku? unit_man? unit_sen? unit_juu? mixed_number?
