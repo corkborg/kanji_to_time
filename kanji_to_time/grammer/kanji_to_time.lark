@@ -1,5 +1,5 @@
 start_datetime: year month day hour? minute? second?
-start_timedelta: duration_day? duration_hour? duration_minute? duration_second? (before_time | after_time)?
+start_timedelta: duration_day? duration_hour? duration_minute? duration_second? (BEFORE_TIME | AFTER_TIME)?
 
 year: number "年"
 month: number "月"
@@ -13,34 +13,33 @@ duration_hour: number "時" | number "時間"
 duration_minute: number "分" | number "分間"
 duration_second: number "秒" | number "秒間"
 
-before_time: "前"
-after_time: "後"
+BEFORE_TIME: "前"
+AFTER_TIME: "後"
 
-number: (minus | plus)? mixed_number_with_unit
+number: (MINUS | PLUS)? mixed_number_with_unit
 mixed_number_with_unit: unit_oku? unit_man? unit_sen? unit_juu? mixed_number?
 
-minus: "-" | /ー/ | /マイナス/ | /ひく/ | /引く/
-plus: "+" | /＋/ | /プラス/ | /たす/ | /足す/
+MINUS: "-" | "ー" | "マイナス" | "ひく" | "引く"
+PLUS: "+" | "＋" | "プラス" | "たす" | "足す"
 
 unit_oku: mixed_number "億" // 億は数値が必須
 unit_man: mixed_number "万" // 万は数値が必須
 unit_sen: mixed_number? "千"
 unit_juu: mixed_number? "十"
 
-mixed_number: (zenkaku_digit | kanji_digit | DIGIT)+ // 漢字混合で小数点のサポートは行わない
-kanji_unit: "十" | "百" | "千" | "万" | "億"
-kanji_digit: /一/ | /壱/
-           | /二/ | /弐/
-           | /三/ | /参/
-           | /四/ | /肆/
-           | /五/ | /伍/
-           | /六/ | /陸/
-           | /七/ | /漆/
-           | /八/ | /捌/
-           | /九/ | /玖/
-           | /〇/ | /ゼロ/ | /零/
-           | /○/ | /◯/ // 一応丸もサポートしておく
-zenkaku_digit: /０/ | /１/ | /２/ | /３/ | /４/ | /５/ | /６/ | /７/ | /８/ | /９/
+mixed_number: (ZENKAKU_DIGIT | KANJI_DIGIT | DIGIT)+ // 漢字混合で小数点のサポートは行わない
+KANJI_DIGIT: "一" | "壱"
+           | "二" | "弐"
+           | "三" | "参"
+           | "四" | "肆"
+           | "五" | "伍"
+           | "六" | "陸"
+           | "七" | "漆"
+           | "八" | "捌"
+           | "九" | "玖"
+           | "〇" | "ゼロ" | "零"
+           | "○" | "◯" // 一応丸もサポートしておく
+ZENKAKU_DIGIT: "０" | "１" | "２" | "３" | "４" | "５" | "６" | "７" | "８" | "９"
 
 %import common.DIGIT
 %import common.WS
