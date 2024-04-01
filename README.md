@@ -81,3 +81,10 @@ https://github.com/corkborg/kanji_to_time/issues
 
 その他の問い合わせはメールまで（メール転送サービスを利用しています）<br/>
 ax4squil8&#064;mozmail.com
+
+## リリースノート
+
+### v0.0.3
+
+* to_timedeltaで接尾辞の前、後のサポート 20秒後(seconds-20)、20秒前（seconds=-20 ）
+* to_timedeltaでプラス、+などのサポート +20分（minutes=20）
