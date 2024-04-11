@@ -1,6 +1,7 @@
 # Kanji to time
 
 日本語の漢字などで書かれた年月日をPythonのdatetime型やtimedelta型に変換するライブラリ。
+内部では正規表現ではなくパーサージェネレータを使用しているので複雑なルールに対応しやすいようになっています。
 
 漢数字、旧字漢数字、全角などに対応しています。
 
@@ -66,6 +67,9 @@ self.assertEqual(td, timedelta(minutes=-700_000_000))
 * [tests/test_to_datetime.py](tests/test_to_datetime.py)
 * [tests/test_to_timedelta.py](tests/test_to_timedelta.py)
 * [tests/test_to_number.py](tests/test_to_number.py)
+
+対応している文法の構造自体を確認したい場合はLark定義ファイルを参照
+* [kanji_to_time/grammer/kanji_to_time.lark](kanji_to_time/grammer/kanji_to_time.lark)
 
 ## ユニットテスト
 
