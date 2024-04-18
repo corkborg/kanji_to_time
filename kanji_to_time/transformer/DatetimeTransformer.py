@@ -1,4 +1,3 @@
-
 from datetime import datetime
 from lark import Tree
 from .BaseTransformer import BaseTransformer
@@ -8,8 +7,8 @@ class DatetimeTransformer(BaseTransformer):
     """
     Datetime生成のための解析ルール
     """
-    def start_datetime(self, args: list[Tree]):
 
+    def start_datetime(self, args: list[Tree]):
         datetime_args = {}
         for tree in args:
             if tree.data == "year":

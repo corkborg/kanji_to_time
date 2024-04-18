@@ -1,7 +1,7 @@
-
 from datetime import timedelta
 import unittest
 import kanji_to_time as ktt
+
 
 class TestClass(unittest.TestCase):
     def test_standard(self):
