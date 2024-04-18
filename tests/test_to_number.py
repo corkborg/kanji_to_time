@@ -1,6 +1,4 @@
-from datetime import datetime, timedelta
 import unittest
-from unittest.mock import patch, MagicMock, Mock
 import kanji_to_time as ktt
 
 
