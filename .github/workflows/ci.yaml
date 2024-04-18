@@ -21,3 +21,6 @@ jobs:
 
       - name: run unittest
         run: python -m unittest discover -s tests
+
+      - name: run linter
+        run: ruff check --output-format=github .

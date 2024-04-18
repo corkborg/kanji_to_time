@@ -29,7 +29,9 @@ print(td)
 
 ```python
 dt = ktt.to_datetime("2024年4月5日22時30分4秒")
-self.assertEqual(dt, datetime(year=2024, month=4, day=5, hour=22, minute=30, second=4))
+self.assertEqual(
+    dt, datetime(year=2024, month=4, day=5, hour=22, minute=30, second=4)
+)
 
 dt = ktt.to_datetime("２０２０年５月７日")
 self.assertEqual(dt, datetime(year=2020, month=5, day=7))
@@ -61,6 +63,12 @@ self.assertEqual(td, timedelta(seconds=90))
 
 td = ktt.to_timedelta("マイナス七億分")
 self.assertEqual(td, timedelta(minutes=-700_000_000))
+
+td = ktt.to_timedelta("45秒前")
+self.assertEqual(td, timedelta(seconds=-45))
+
+td = ktt.to_timedelta("45秒後")
+self.assertEqual(td, timedelta(seconds=45))
 ```
 
 その他詳細なパターンはこちらのファイルを参照
@@ -76,6 +84,20 @@ self.assertEqual(td, timedelta(minutes=-700_000_000))
 ```bash
 pip install -r requirements.txt
 python -m unittest discover -s tests
+```
+
+## リンター
+
+チェック
+
+```bash
+ruff check
+```
+
+フォーマット修正
+
+```bash
+ruff format
 ```
 
 ## 問い合わせ
