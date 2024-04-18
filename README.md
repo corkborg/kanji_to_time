@@ -112,5 +112,6 @@ ax4squil8&#064;mozmail.com
 
 ### v0.0.3
 
-* to_timedeltaで接尾辞の「前」、「後」のサポート。 20秒後(seconds-20)、20秒前（seconds=-20 ）
-* to_timedeltaで「プラス」、「+」などのサポート。 +20分（minutes=20）
+* to_timedeltaで接尾辞の「前」、「後」のサポート。 （ex: 20秒前は-20秒に、20秒後は20秒に）
+* to_timedeltaで「プラス」、「+」などのサポート。（ex: +20分）
+* カンマで区切られた数値をサポート（ex: 2,000）
