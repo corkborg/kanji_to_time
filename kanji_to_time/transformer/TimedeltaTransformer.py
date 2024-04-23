@@ -1,21 +1,28 @@
 from datetime import timedelta
-from lark import Tree
+from typing import cast
+from lark import Tree, Token
 from .BaseTransformer import BaseTransformer
+
 
 class TimeDeltaTransformer(BaseTransformer):
     """
     Datetime生成のための解析ルール
     """
 
-    def start_timedelta(self, args: list[Tree]):
-        datetime_args = {}
-        for tree in args:
-            if tree.data == "duration_day":
-                datetime_args["days"] = tree.children[0]
-            elif tree.data == "duration_hour":
-                datetime_args["hours"] = tree.children[0]
-            elif tree.data == "duration_minute":
-                datetime_args["minutes"] = tree.children[0]
-            elif tree.data == "duration_second":
-                datetime_args["seconds"] = tree.children[0]
-        return timedelta(**datetime_args)
+    def start_timedelta(self, args: list[Tree | Token]):
+        temp_td = timedelta()
+        for arg in args:
+            if isinstance(arg, Token):
+                if arg.type == "BEFORE_TIME":
+                    temp_td *= -1
+            else:
+                num = cast(int, arg.children[0])
+                if arg.data == "duration_day":
+                    temp_td += timedelta(days=num)
+                elif arg.data == "duration_hour":
+                    temp_td += timedelta(hours=num)
+                elif arg.data == "duration_minute":
+                    temp_td += timedelta(minutes=num)
+                elif arg.data == "duration_second":
+                    temp_td += timedelta(seconds=num)
+        return temp_td

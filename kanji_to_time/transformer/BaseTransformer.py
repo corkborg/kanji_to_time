@@ -6,26 +6,20 @@ class BaseTransformer(Transformer):
     timedelta, datetime共通の解析ルール
     """
 
-    def kanji_digit(self, args: list[Token]):
-        return convert_table.to_number(args[0].value)
-
-    def zenkaku_digit(self, args: list[Token]):
-        return convert_table.to_number(args[0].value)
-
     def number(self, args):
-       if args[0] == "-":
-            return args[1] * -1
-       return args[0]
-
-    def signed(self, args):
-        return "-"
+        if isinstance(args[0], Token):
+            if args[0].type == "MINUS":
+                return args[1] * -1
+            elif args[0].type == "PLUS":
+                return args[1]
+        return args[0]
 
     def mixed_number(self, args):
         # 桁をあわせて結合
-        strs = [str(arg) for arg in args]
+        strs = [str(convert_table.to_number(arg)) for arg in args]
         return int(''.join(strs))
 
-    def kanji_num_parser(self, args):
+    def mixed_number_with_unit(self, args):
         return sum(args)
 
     def unit_juu(self, args):

@@ -19,6 +19,10 @@ zero_table = {
     "◯": 0, # 誤りのゼロ
 }
 
+ascii_number = {
+    str(num): num for num in range(0, 10)
+}
+
 table = {
     "一": 1, "壱": 1,
     "二": 2, "弐": 2,
@@ -30,5 +34,6 @@ table = {
     "八": 8, "捌": 8,
     "九": 9, "玖": 9,
     **zenkaku_table,
-    **zero_table
+    **zero_table,
+    **ascii_number,
 }

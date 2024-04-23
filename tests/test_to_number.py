@@ -20,6 +20,15 @@ class TestClass(unittest.TestCase):
         n = ktt.to_number('マイナス四３2')
         self.assertEqual(n, -432)
 
+        n = ktt.to_number('ひく43')
+        self.assertEqual(n, -43)
+
+        n = ktt.to_number('+3')
+        self.assertEqual(n, 3)
+
+        n = ktt.to_number('プラス9')
+        self.assertEqual(n, 9)
+
         n = ktt.to_number('9')
         self.assertEqual(n, 9)
 
