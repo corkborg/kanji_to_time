@@ -29,7 +29,9 @@ print(td)
 
 ```python
 dt = ktt.to_datetime("2024年4月5日22時30分4秒")
-self.assertEqual(dt, datetime(year=2024, month=4, day=5, hour=22, minute=30, second=4))
+self.assertEqual(
+    dt, datetime(year=2024, month=4, day=5, hour=22, minute=30, second=4)
+)
 
 dt = ktt.to_datetime("２０２０年５月７日")
 self.assertEqual(dt, datetime(year=2020, month=5, day=7))
@@ -61,6 +63,12 @@ self.assertEqual(td, timedelta(seconds=90))
 
 td = ktt.to_timedelta("マイナス七億分")
 self.assertEqual(td, timedelta(minutes=-700_000_000))
+
+td = ktt.to_timedelta("45秒前")
+self.assertEqual(td, timedelta(seconds=-45))
+
+td = ktt.to_timedelta("45秒後")
+self.assertEqual(td, timedelta(seconds=45))
 ```
 
 その他詳細なパターンはこちらのファイルを参照
@@ -78,6 +86,20 @@ pip install -r requirements.txt
 python -m unittest discover -s tests
 ```
 
+## リンター
+
+チェック
+
+```bash
+ruff check
+```
+
+フォーマット修正
+
+```bash
+ruff format
+```
+
 ## 問い合わせ
 
 バグや機能要望についてはissueに報告をお願いします。<br/>
@@ -90,5 +112,6 @@ ax4squil8&#064;mozmail.com
 
 ### v0.0.3
 
-* to_timedeltaで接尾辞の「前」、「後」のサポート。 20秒後(seconds-20)、20秒前（seconds=-20 ）
-* to_timedeltaで「プラス」、「+」などのサポート。 +20分（minutes=20）
+* to_timedeltaで接尾辞の「前」、「後」のサポート。 （ex: 20秒前は-20秒に、20秒後は20秒に）
+* to_timedeltaで「プラス」、「+」などのサポート。（ex: +20分）
+* カンマで区切られた数値をサポート（ex: 2,000）

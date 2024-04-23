@@ -1,6 +1,7 @@
 from lark import Token, Transformer
 from .. import convert_table
 
+
 class BaseTransformer(Transformer):
     """
     timedelta, datetime共通の解析ルール
@@ -17,7 +18,7 @@ class BaseTransformer(Transformer):
     def mixed_number(self, args):
         # 桁をあわせて結合
         strs = [str(convert_table.to_number(arg)) for arg in args]
-        return int(''.join(strs))
+        return int("".join(strs))
 
     def mixed_number_with_unit(self, args):
         return sum(args)
@@ -41,6 +42,3 @@ class BaseTransformer(Transformer):
         if len(args) == 1:
             return int(args[0]) * 100_000_000
         return 1000
-
-
-
