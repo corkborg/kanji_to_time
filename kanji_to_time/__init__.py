@@ -10,7 +10,7 @@ schema_path = Path(__file__).parent / 'grammer'/ 'kanji_to_time.lark'
 
 def to_datetime(text: str) -> datetime:
     """
-    文字列をdatetimeに変換する
+    日付文字列をdatetimeに変換する
     """
     parser = Lark.open(
         str(schema_path),
@@ -22,7 +22,7 @@ def to_datetime(text: str) -> datetime:
 
 def to_timedelta(text: str) -> timedelta:
     """
-    文字列をtimedeltaに変換する
+    日付文字列をtimedeltaに変換する
     """
     parser = Lark.open(
         str(schema_path),
@@ -34,7 +34,7 @@ def to_timedelta(text: str) -> timedelta:
 
 def to_number(text: str) -> timedelta:
     """
-    数値に変換する。主にデバッグ用の関数
+    日付文字列を数値に変換する
     """
     parser = Lark.open(
         str(schema_path),

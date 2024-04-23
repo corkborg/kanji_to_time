@@ -12,7 +12,6 @@ class BaseTransformer(Transformer):
                 return args[1] * -1
             elif args[0].type == "PLUS":
                 return args[1]
-            return args[1] * -1
         return args[0]
 
     def mixed_number(self, args):
