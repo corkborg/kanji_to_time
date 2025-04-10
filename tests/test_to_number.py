@@ -58,6 +58,12 @@ class TestClass(unittest.TestCase):
         n = ktt.to_number("千7")
         self.assertEqual(n, 1007)
 
+        n = ktt.to_number("百")
+        self.assertEqual(n, 100)
+
+        n = ktt.to_number("5百")
+        self.assertEqual(n, 500)
+
         n = ktt.to_number("２万千7")
         self.assertEqual(n, 21007)
 
@@ -66,3 +72,6 @@ class TestClass(unittest.TestCase):
 
         n = ktt.to_number("200,001,007")
         self.assertEqual(n, 200_001_007)
+
+        n = ktt.to_number("２萬七阡佰４拾")
+        self.assertEqual(n, 27140)

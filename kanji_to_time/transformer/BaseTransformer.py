@@ -24,21 +24,27 @@ class BaseTransformer(Transformer):
         return sum(args)
 
     def unit_juu(self, args):
-        if len(args) == 1:
+
+        if len(args) == 2:
             return int(args[0]) * 10
         return 10
 
+    def unit_hyaku(self, args):
+        if len(args) == 2:
+            return int(args[0]) * 100
+        return 100
+
     def unit_sen(self, args):
-        if len(args) == 1:
+        if len(args) == 2:
             return int(args[0]) * 1000
         return 1000
 
     def unit_man(self, args):
-        if len(args) == 1:
+        if len(args) == 2:
             return int(args[0]) * 10_000
         return 1000
 
     def unit_oku(self, args):
-        if len(args) == 1:
+        if len(args) == 2:
             return int(args[0]) * 100_000_000
         return 1000
