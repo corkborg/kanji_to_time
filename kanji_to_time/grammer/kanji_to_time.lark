@@ -17,15 +17,22 @@ BEFORE_TIME: "前"
 AFTER_TIME: "後"
 
 number: (MINUS | PLUS)? mixed_number_with_unit
-mixed_number_with_unit: unit_oku? unit_man? unit_sen? unit_juu? mixed_number?
+mixed_number_with_unit: unit_oku? unit_man? unit_sen? unit_hyaku? unit_juu? mixed_number?
 
 MINUS: "-" | "ー" | "マイナス" | "ひく" | "引く"
 PLUS: "+" | "＋" | "プラス" | "たす" | "足す"
 
-unit_oku: mixed_number "億" // 億は数値が必須
-unit_man: mixed_number "万" // 万は数値が必須
-unit_sen: mixed_number? "千"
-unit_juu: mixed_number? "十"
+unit_oku: mixed_number OKU // 億は数値が必須
+unit_man: mixed_number MAN // 万は数値が必須
+unit_sen: mixed_number? SEN
+unit_hyaku: mixed_number? HYAKU
+unit_juu: mixed_number? JU
+
+OKU: "億"
+MAN: "万" | "萬"
+SEN: "千" | "阡"
+HYAKU: "百" | "佰"
+JU: "十" | "拾"
 
 mixed_number: (ZENKAKU_DIGIT | KANJI_DIGIT | DIGIT)+ // 漢字混合で小数点のサポートは行わない
 KANJI_DIGIT: "一" | "壱"
