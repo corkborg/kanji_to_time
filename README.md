@@ -105,10 +105,15 @@ ruff format
 バグや機能要望についてはissueに報告をお願いします。<br/>
 https://github.com/corkborg/kanji_to_time/issues
 
-その他の問い合わせはメールまで（メール転送サービスを利用しています）<br/>
-ax4squil8&#064;mozmail.com
+その他の問い合わせはメールまで<br/>
+corkborg@outlook.jp
 
 ## リリースノート
+
+### v0.0.4
+
+* 萬阡拾のサポート
+* 百の桁周りの対応
 
 ### v0.0.3
 
